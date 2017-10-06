@@ -16,4 +16,5 @@ public interface IEgarWEBToken {
 	
 	public static final int ACCESS_TOKEN_VALIDITY_DURATION = 2;
 	public static final int ACCESS_TOKEN_VALIDITY_UNIT = Calendar.MINUTE;
+	
 }

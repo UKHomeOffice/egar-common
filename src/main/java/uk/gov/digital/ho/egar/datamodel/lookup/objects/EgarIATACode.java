@@ -1,5 +1,6 @@
 package uk.gov.digital.ho.egar.datamodel.lookup.objects;
 
+import lombok.Data;
 import uk.gov.digital.ho.egar.datamodel.interfaces.IIATACode;
 
 /**
@@ -7,6 +8,7 @@ import uk.gov.digital.ho.egar.datamodel.interfaces.IIATACode;
  * @author Keshava.Grama
  *
  */
+@Data
 public class EgarIATACode implements IIATACode {
 
 }
