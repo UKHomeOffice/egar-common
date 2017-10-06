@@ -7,9 +7,10 @@ package uk.gov.digital.ho.egar.datamodel.interfaces;
  */
 public interface IEgarPersistedRecord {
 	public enum PurgePeriod{
-		threeMonths,
-		sixMonths,
-		twelveMonths
+		THREE_MONTHS,
+		SIX_MONTHS,
+		TWELVE_MONTHS,
+		NEVER
 	};
 
 }
