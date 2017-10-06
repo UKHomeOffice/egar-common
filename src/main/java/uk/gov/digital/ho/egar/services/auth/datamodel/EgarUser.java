@@ -12,22 +12,22 @@ import uk.gov.digital.ho.egar.services.auth.IEgarRegisteredUser;
  *
  */
 @Data
-public class EgarUser implements IEgarRegisteredUser {
-	String username;
-	String passwordHash;
-	String salt;
+public abstract class EgarUser implements IEgarRegisteredUser {
+	protected String username;
+	protected String passwordHash;
+	protected String salt;
 	
-	int numberOfFailedLoginAttempts;
-	boolean accountLocked;
-	boolean passwordExpired;
+	protected int numberOfFailedLoginAttempts;
+	protected boolean accountLocked;
+	protected boolean passwordExpired;
 	
-	Date passwordExpiryDate;
+	protected  Date passwordExpiryDate;
+	protected UUID uuidOfUser;
 	
-	/**
-	 * This uuid field is used as the key to search all records entered by this user
-	 */
-	UUID uuidOfUser;
-
+	public EgarUser() {
+		this.uuidOfUser = UUID.randomUUID();
+	}
+	
 	public AuthenticationState authUser() {
 		// TODO Auto-generated method stub
 		return null;
