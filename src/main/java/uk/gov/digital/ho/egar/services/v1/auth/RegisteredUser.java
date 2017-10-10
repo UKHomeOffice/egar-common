@@ -1,7 +1,6 @@
 package uk.gov.digital.ho.egar.services.v1.auth;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import uk.gov.digital.ho.egar.constants.ServicePathConstants;
 
 /**
  * Registered users may have a minimal profile as their details are not required in eGAR if they are not 
@@ -10,8 +9,13 @@ import java.util.UUID;
  *
  */
 public interface RegisteredUser {
-
-	String getUsername();
+	public static final String ROOT_SERVICE_NAME = "authenticated";
+	public static final String ROOT_PATH = 
+			ServicePathConstants.ROOT_PATH_SEPERATOR + 
+			ServicePathConstants.ROOT_SERVICE_API + 
+			ServicePathConstants.ROOT_PATH_SEPERATOR + 
+			ROOT_SERVICE_NAME;
+	/*String getUsername();
 
 	String getPasswordHash();
 
@@ -30,5 +34,5 @@ public interface RegisteredUser {
 	AuthenticationState authUser();
 
 	boolean changePassword(String newPassword);
-	
+	*/
 }
