@@ -1,5 +1,4 @@
 ## build artifacts ##
-.*
 *.class
 /**/mvnw
 /**/mvnw*.*
