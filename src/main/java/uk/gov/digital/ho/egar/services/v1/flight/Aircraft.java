@@ -1,6 +1,10 @@
 package uk.gov.digital.ho.egar.services.v1.flight;
 
+import java.util.UUID;
+
 import uk.gov.digital.ho.egar.constants.ServicePathConstants;
+import uk.gov.digital.ho.egar.services.v1.people.Person;
+import uk.gov.digital.ho.egar.services.v1.referencedata.AircraftType;
 
 /**
  * Interface for any method signatures that the aircraft object will need. 
@@ -15,7 +19,7 @@ public interface Aircraft {
 			ServicePathConstants.ROOT_PATH_SEPERATOR + 
 			ROOT_SERVICE_NAME;
     
-	/*
+	
 	UUID getUuid();
 
     AircraftType getAircraftType();
@@ -29,5 +33,5 @@ public interface Aircraft {
     Person getResponsiblePerson();
 
     String getCrewContactInUK();
-    */
+    
 }

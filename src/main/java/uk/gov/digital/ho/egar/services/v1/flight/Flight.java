@@ -1,5 +1,8 @@
 package uk.gov.digital.ho.egar.services.v1.flight;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 import uk.gov.digital.ho.egar.constants.ServicePathConstants;
 
 /**
@@ -14,7 +17,7 @@ public interface Flight {
 			ServicePathConstants.ROOT_SERVICE_API + 
 			ServicePathConstants.ROOT_PATH_SEPERATOR + 
 			ROOT_SERVICE_NAME;
-	/*
+	
 	UUID getId();
 
 	LocalDateTime getDepartureDateTimeUTC();
@@ -32,5 +35,5 @@ public interface Flight {
 	boolean isUkVatPaid();
 
 	ReasonForFlight getReason();
-	*/
+	
 }
