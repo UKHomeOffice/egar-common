@@ -9,10 +9,5 @@ import uk.gov.digital.ho.egar.constants.ServicePathConstants;
  *
  */
 public interface UnregisteredUser {
-	public static final String ROOT_SERVICE_NAME = "register";
-	public static final String ROOT_PATH = 
-			ServicePathConstants.ROOT_PATH_SEPERATOR + 
-			ServicePathConstants.ROOT_SERVICE_API + 
-			ServicePathConstants.ROOT_PATH_SEPERATOR + 
-			ROOT_SERVICE_NAME;
+	
 }

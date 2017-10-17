@@ -10,6 +10,9 @@ import java.util.UUID;
 public interface SupportingDocs {
 
     UUID getUuid();
-
+    /**
+     * @see Amazon key management
+     * @return
+     */
     String getKeyReference();
 }
