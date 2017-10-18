@@ -2,6 +2,7 @@ package uk.gov.digital.ho.egar.datamodel;
 
 import uk.gov.digital.ho.egar.datamodel.PurgePeriod;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -10,7 +11,7 @@ import java.util.UUID;
  * @author Keshava.Grama
  *
  */
-public interface PersistedRecord {
+public interface PersistedRecord extends Serializable{
 
 	UUID getUuidOfSourceUser();
 
