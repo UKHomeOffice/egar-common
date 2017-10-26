@@ -16,13 +16,15 @@ public interface GARSubmission {
 
     UUID getId();
 
-    Flight getFlight();
+    FlightSnapShot getFlight();
 
-    Traveller getCaptain();
+    TravellerSnapShot getCaptain();
 
-    List<Traveller> getCrew();
+    List<TravellerSnapShot> getCrew();
 
-    List<Traveller> getPassengers();
+    List<TravellerSnapShot> getPassengers();
 
-    List<SupportingDocs> getSupportingDocs();
+    List<SupportingDocsSnapShot> getSupportingDocs();
+    
+    String getCBPReferenceNumber();
 }
