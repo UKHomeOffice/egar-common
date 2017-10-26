@@ -1,9 +1,5 @@
 package uk.gov.digital.ho.egar.services.v1.gar;
 
-import uk.gov.digital.ho.egar.services.v1.flight.Flight;
-import uk.gov.digital.ho.egar.services.v1.people.Traveller;
-import uk.gov.digital.ho.egar.services.v1.supportingdocs.SupportingDocs;
-
 import java.util.List;
 import java.util.UUID;
 
