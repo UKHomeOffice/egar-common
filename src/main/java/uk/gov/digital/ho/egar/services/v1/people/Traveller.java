@@ -8,10 +8,11 @@ import java.util.UUID;
  * @author Keshava.Grama
  *
  */
-public interface Traveller extends Person {
+public interface Traveller{
 
 	UUID getId();
-
+	UUID getPersonUuid();
+	
 	Address getUkAddress();
 
 	String getNationality();
