@@ -25,5 +25,5 @@ pipelines:
         caches:
           - maven
         script: 
-          - mvn -B verify -DskipTests
+          - mvn -B deploy -DskipTests
           
