@@ -4,11 +4,26 @@
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
 image: maven:3.3.9
-
+ 
 pipelines:
   default:
+    # mvn -B batch mode makes Maven less verbose
     - step:
+        name: Build Only
         caches:
           - maven
-        script: # Modify the commands below to build your repository.
-          - mvn -B deploy # -B batch mode makes Maven less verbose
+        script: 
+          - mvn -B compile 
+    - step:
+        name: Test
+        caches:
+          - maven
+        script: 
+          - mvn -B test 
+    - step:
+        name: Deploy to S3
+        caches:
+          - maven
+        script: 
+          - mvn -B verify -DskipTests
+          
