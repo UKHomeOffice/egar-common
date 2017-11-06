@@ -1,6 +1,5 @@
 package uk.gov.digital.ho.egar.services.v1.flight;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -9,22 +8,20 @@ import java.util.UUID;
  *
  */
 public interface Flight {
-	UUID getId();
+	UUID getUuid();
 
-	LocalDateTime getDepartureDateTimeUTC();
+	WhereWhen getFrom();
 
-	LocalDateTime getArrivalDateTimeUTC();
+	WhereWhen getTo();
 
-	GeographicLocation getFrom();
-
-	GeographicLocation getTo();
-
-	UUID getAircraftId();
+	Aircraft getAircraft();
 
 	boolean isAircraftInFreeCirculation();
 
 	boolean isUkVatPaid();
-
+	
+	boolean isHazardousGoodsOnBoard(); 
+	
 	ReasonForFlight getReason();
 	
 }
