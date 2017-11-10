@@ -22,6 +22,8 @@ public interface Flight {
 	
 	boolean isHazardousGoodsOnBoard(); 
 	
+	boolean isWithinCTA();
+	
 	ReasonForFlight getReason();
 	
 }
