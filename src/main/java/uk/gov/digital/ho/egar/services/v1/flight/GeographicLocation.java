@@ -10,9 +10,9 @@ import uk.gov.digital.ho.egar.services.v1.referencedata.ICAOCode;
  */
 public interface GeographicLocation {
 
-    ICAOCode getIcaoCode();
+    String getIcaoCode();
 
-    IATACode getIataCode();
+    String getIataCode();
 
     String getLatitude();
 
