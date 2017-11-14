@@ -6,5 +6,5 @@ package uk.gov.digital.ho.egar.services.v1.referencedata;
  *
  */
 public interface IATACode {
-    //TODO - Placeholder
+    public String getIataCode();
 }
