@@ -4,11 +4,12 @@
 	<artifactId>egar-common</artifactId>
 	<name>Egar common</name>
 	<description>Common and shared constants for egar</description>
+	<version>2.0.4</version>
 	
 	<parent>
 		<groupId>uk.gov.digital.ho.egar</groupId>
 		<artifactId>egar-parent</artifactId>
-		<version>2.0.1</version>
+		<version>2.0.3</version>
 	</parent>
 	
 	<properties>
@@ -35,12 +36,10 @@
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
-            <version>1.5.7.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>1.5.7.RELEASE</version>
         </dependency>
 	</dependencies>
 
@@ -92,6 +91,4 @@
 		</snapshotRepository>
 	</distributionManagement> 
 
-
-	<version>2.0.3</version>
 </project>
