@@ -4,7 +4,7 @@
 	<artifactId>egar-common</artifactId>
 	<name>Egar common</name>
 	<description>Common and shared constants for egar</description>
-	<version>2.0.4</version>
+	<version>2.0.5</version>
 	
 	<parent>
 		<groupId>uk.gov.digital.ho.egar</groupId>
@@ -33,10 +33,19 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
+		<!-- Only needed for class SharedControllerAdvice -->
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-databind</artifactId>
+		</dependency>
+		<!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
-        </dependency>
+        </dependency> -->
 		<dependency>
 		    <groupId>javax.persistence</groupId>
 		    <artifactId>persistence-api</artifactId>

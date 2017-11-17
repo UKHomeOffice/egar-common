@@ -7,9 +7,14 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Profile;
 
+/**
+ * @deprecated Use #NotProdEnvironmentProfile
+ *
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Profile("dev")
+@Deprecated
 public @interface DevEnvironmentProfile {
 
 }
