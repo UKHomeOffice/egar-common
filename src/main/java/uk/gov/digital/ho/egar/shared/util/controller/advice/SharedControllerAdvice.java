@@ -23,4 +23,11 @@ public class SharedControllerAdvice {
 	public void handleIDNotFoundException() {
 		
 	}
+	
+	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(IllegalArgumentException.class)
+	public void handleEntityNotFoundException() {
+		
+	}
 }
