@@ -6,6 +6,9 @@ package uk.gov.digital.ho.egar.services.v1.people;
  *
  * @author Keshava.Grama
  */
+/**
+ * @deprecated Will be removed in the next release.
+ */
 public interface Address {
 
     String getAddressLine1();

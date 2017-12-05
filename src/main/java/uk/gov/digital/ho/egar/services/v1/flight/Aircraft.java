@@ -8,7 +8,7 @@ import uk.gov.digital.ho.egar.services.v1.referencedata.AircraftType;
 /**
  * Interface for any method signatures that the aircraft object will need. 
  * @author Keshava.Grama
- *
+ * @deprecated Will be removed in the next release.
  */
 public interface Aircraft{
 	UUID getUuid();

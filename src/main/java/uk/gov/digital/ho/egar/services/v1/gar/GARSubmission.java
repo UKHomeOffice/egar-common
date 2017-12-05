@@ -6,7 +6,7 @@ import java.util.UUID;
 /**
  * Interface for any method signatures and constants that a GAR entry will need
  * @author Keshava.Grama
- *
+ * @deprecated Will be removed in the next release.
  */
 public interface GARSubmission {
 

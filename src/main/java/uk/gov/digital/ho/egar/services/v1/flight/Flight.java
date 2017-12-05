@@ -5,6 +5,7 @@ import java.util.UUID;
 /**
  * Interface for any method signatures and constants that the are relevant to a flight
  * @author Keshava.Grama
+ * @deprecated Will be removed in the next release.
  *
  */
 public interface Flight {

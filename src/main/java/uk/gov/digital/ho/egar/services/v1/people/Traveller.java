@@ -6,7 +6,7 @@ import java.util.UUID;
 /**
  * Interface for any method signatures and constants are related to travellers in a GAR
  * @author Keshava.Grama
- *
+ * @deprecated Will be removed in the next release.
  */
 public interface Traveller{
 
