@@ -4,14 +4,14 @@
 	<artifactId>egar-common</artifactId>
 	<name>Egar common</name>
 	<description>Common and shared constants for egar</description>
-	<version>2.0.5</version>
-	
+	<version>4.0.0</version>
+
 	<parent>
 		<groupId>uk.gov.digital.ho.egar</groupId>
 		<artifactId>egar-parent</artifactId>
 		<version>2.0.3</version>
 	</parent>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -21,10 +21,21 @@
 		<aws.repo.bucket>egar-maven-s3-repo</aws.repo.bucket>
 	</properties>
 	<dependencies>
+
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-jwt</artifactId>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <scope>provided</scope>
 		</dependency>
+	
+ 		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -33,23 +44,24 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		<!-- Only needed for class SharedControllerAdvice -->
+		<!-- Only needed for class SharedControllerAdvice 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		-->
 		<dependency>
-		  <groupId>com.fasterxml.jackson.core</groupId>
-		  <artifactId>jackson-databind</artifactId>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 		</dependency>
-		<!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-hateoas</artifactId>
-        </dependency> -->
 		<dependency>
-		    <groupId>javax.persistence</groupId>
-		    <artifactId>persistence-api</artifactId>
-		    <version>1.0.2</version>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -63,19 +75,12 @@
 		</extensions>
 	</build>
 
-	<!-- 
-	Using S3 as Maven repository 
-		See: https://blog.zestmoney.in/using-s3-as-maven-repository-4b96e8045ccf
-	
-	The repository needs to be defined absolutely as no variables are resolved until the parent POM is
-	found. 
-	The general issue seems to be, that you cannot fetch the parent of a project via S3, because Maven 
-	tries to load the parent before it loads the S3 plugin or the variables..
-		See: https://github.com/spring-projects/aws-maven/issues/25
-	
-	Permissions Required for Website Access on S3
-		See: https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteAccessPermissionsReqd.html 
- 	-->
+	<!-- Using S3 as Maven repository See: https://blog.zestmoney.in/using-s3-as-maven-repository-4b96e8045ccf 
+		The repository needs to be defined absolutely as no variables are resolved 
+		until the parent POM is found. The general issue seems to be, that you cannot 
+		fetch the parent of a project via S3, because Maven tries to load the parent 
+		before it loads the S3 plugin or the variables.. See: https://github.com/spring-projects/aws-maven/issues/25 
+		Permissions Required for Website Access on S3 See: https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteAccessPermissionsReqd.html -->
 	<repositories>
 		<repository>
 			<id>egar-aws-release</id>
@@ -99,6 +104,6 @@
 			<name>AWS Snapshot Repository</name>
 			<url>s3://egar-maven-s3-repo/snapshot</url>
 		</snapshotRepository>
-	</distributionManagement> 
+	</distributionManagement>
 
 </project>

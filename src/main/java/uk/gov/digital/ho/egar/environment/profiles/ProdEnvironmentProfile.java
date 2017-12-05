@@ -7,8 +7,14 @@ import java.lang.annotation.Target;
 
 import org.springframework.context.annotation.Profile;
 
+/**
+ * Environment profile to setup the use of persistent data prod data sources:
+ * - Use to set default logging levels to error 
+ * - Return business  
+ *
+ */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE,ElementType.METHOD})
 @Profile("prod")
 public @interface ProdEnvironmentProfile {
 
