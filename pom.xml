@@ -4,7 +4,7 @@
 	<artifactId>egar-common</artifactId>
 	<name>Egar common</name>
 	<description>Common and shared constants for egar</description>
-	<version>4.0.2-SNAPSHOT</version>
+	<version>4.0.2</version>
 
 	<parent>
 		<groupId>uk.gov.digital.ho.egar</groupId>
