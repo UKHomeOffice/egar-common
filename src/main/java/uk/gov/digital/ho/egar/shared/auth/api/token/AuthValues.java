@@ -17,6 +17,7 @@ public class AuthValues {
 	private final String authHeader;
 	private final UUID userUuid;
 	
+	
 	public HttpHeaders createHttpHeaders() {
 		
 		HttpHeaders headers = new HttpHeaders();
@@ -45,6 +46,5 @@ public class AuthValues {
 
 		
 	}
-	
 	
 }
