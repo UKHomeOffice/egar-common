@@ -38,4 +38,37 @@ public class DownstreamHealthIndicator implements HealthIndicator {
         return Health.down().build();
     } 
     
+    /**
+     * Fetches the Info endpoint data from the remote.
+     * @return null on failure.
+     */
+    public static JsonNode fetchRawHealth(RestTemplate restTemplate,String downStreamUrl) {
+    	
+    	JsonNode resp = null ;
+    	
+        try {
+            resp = restTemplate.getForObject(downStreamUrl + "/health", JsonNode.class); 
+            
+        } catch (Exception ex) {
+        	// Swollow
+        }
+        return resp;
+    } 
+    /**
+     * Fetches the Info endpoint data from the remote.
+     * @return null on failure.
+     */
+    public static JsonNode fetchInfo(RestTemplate restTemplate,String downStreamUrl) {
+    	
+    	JsonNode resp = null ;
+    	
+        try {
+            resp = restTemplate.getForObject(downStreamUrl + "/info", JsonNode.class); 
+            
+        } catch (Exception ex) {
+        	// Swollow
+        }
+        return resp;
+    } 
+    
 }
