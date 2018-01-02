@@ -6,6 +6,7 @@ pipeline:
       branch: [master, develop]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    secrets: [ access_key, access_key_id ]
     commands:
       - ./build-deploy.sh
   notify_slack:
