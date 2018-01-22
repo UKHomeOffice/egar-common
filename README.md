@@ -25,7 +25,7 @@ Each one has its own use-case and its usage is documented within the header of t
 
 ## Find Us
 
-* [GitHub](https://github.com/UKHomeOffice/XXXXXXXX)
+* [GitHub](https://github.com/UKHomeOffice/egar-common)
 
 ## Contributing
 
@@ -34,11 +34,11 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## Versioning
 
 The version of this repository is performed following the guide lines bublished by the [The Apache Software Foundation](https://apr.apache.org/versioning.html).
-[tags on this repository](https://github.com/UKHomeOffice/XXXXXX/tags). 
+[tags on this repository](https://github.com/UKHomeOffice/egar-common/tags). 
 
 ## Authors
 
-See the list of [contributors](https://github.com/UKHomeOffice/XXXXXXXX/contributors) who 
+See the list of [contributors](https://github.com/UKHomeOffice/egar-common/contributors) who 
 participated in this project.
 
 ## License
