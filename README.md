@@ -1,7 +1,7 @@
 # Home Office - eGAR Commons
 
 This is shared libary for the HO eGAR project.
-It contains a set of classes shared by all the micro-services used bgy that project.
+It contains a set of classes shared by all the micro-services used by that project.
 
 ## Getting Started
 
