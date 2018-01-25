@@ -57,6 +57,13 @@ public class FlywayRunnerArgs {
 	@Value("${flyway.baseline-on-migrate}")
 	private String baselineOnMigrate;
 
+    @Value("${spring.datasource.username:#{null}}")
+	private String username;
+
+	@Value("${spring.datasource.password:#{null}}")
+	private String password;
+
+		    
 	@Value("${flyway.database.admin.username:#{null}}")
 	private String adminUsername;
 
@@ -77,6 +84,24 @@ public class FlywayRunnerArgs {
 
 	public String getAdminPassword() {
 		return adminPassword;
+	}
+
+	
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public boolean areAdminCredentialsSet() {

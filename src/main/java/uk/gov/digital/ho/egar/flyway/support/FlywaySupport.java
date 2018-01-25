@@ -4,7 +4,10 @@ import java.sql.SQLException;
 
 public interface FlywaySupport {
 
-	void createDatabaseIfRequired() throws SQLException;
+	/**
+	 * @return true is the db can be created or exists and the support process should continue.
+	 */
+	boolean createDatabaseIfRequired() throws SQLException;
 
 	void executeFlyway();
 }

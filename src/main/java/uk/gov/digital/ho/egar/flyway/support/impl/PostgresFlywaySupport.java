@@ -1,6 +1,9 @@
 package uk.gov.digital.ho.egar.flyway.support.impl;
 
 import org.flywaydb.core.Flyway;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import uk.gov.digital.ho.egar.flyway.FlywayRunnerArgs;
 import uk.gov.digital.ho.egar.flyway.support.FlywaySupport;
 
@@ -8,16 +11,24 @@ import javax.sql.DataSource;
 import java.net.URI;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * This class 'supports' the FlywayRunner.
+ * It allows a Postgres database to be supported and migrated.
+ */
 public class PostgresFlywaySupport implements FlywaySupport {
 
-	private DataSource datasource;
+	private static final Logger logger = LoggerFactory.getLogger(PostgresFlywaySupport.class);
+	
+	private final DataSource datasource;
 
-	private URI jdbcUri;
+	private final URI jdbcUri;
 
-	private FlywayRunnerArgs flywayRunnerArgs ;
+	private final FlywayRunnerArgs flywayRunnerArgs ;
 
 	public PostgresFlywaySupport(DataSource datasource, URI jdbcUri, FlywayRunnerArgs flywayRunnerArgs) {
 		this.datasource = datasource;
@@ -25,34 +36,121 @@ public class PostgresFlywaySupport implements FlywaySupport {
 		this.flywayRunnerArgs = flywayRunnerArgs;
 	}
 
-	public void createDatabaseIfRequired() throws SQLException {
+	public boolean createDatabaseIfRequired() throws SQLException {
+		
+		logger.debug("createDatabaseIfRequired()");
+		String dbServerUrl = String.format("jdbc:postgresql://%s:%d/", 
+				jdbcUri.getHost(),
+				((jdbcUri.getPort() != -1) ? jdbcUri.getPort() : 5432));
+		Connection conn = DriverManager.getConnection(dbServerUrl, flywayRunnerArgs.getUsername(), flywayRunnerArgs.getPassword());
+		//Only retrieve the db name
+		String schemaName = jdbcUri.getPath().split(";")[0];
+		//Removes "/" prefix
+		schemaName = schemaName.startsWith("/") ? schemaName.substring(1) : schemaName;
+		
 		try {
-			datasource.getConnection();
-		} catch (SQLException e) {
+			// Database exists?
+			if ( !checkDatabaseExists(conn,schemaName) )
+			{
+				// As db does not exist do we procede?
+				String[] arguments = flywayRunnerArgs.getFlywayProperties();
+				for(String argument:arguments){
+					switch (argument){
+						case "clean"   :
+						case "info"    :
+						case "validate":
+							logger.info("No data base at " + jdbcUri.toString() );
+							return false ;
+					}
+				}
 
+				// No ... 
+				conn.close();
 
-			String defaultUrl = String.format("jdbc:%s://%s%s/postgres", jdbcUri.getScheme(), jdbcUri.getHost(), (jdbcUri.getPort() != -1 ? ":" + jdbcUri.getPort() : ""));
-			//Only retrieve the db name
-			String originalDb = jdbcUri.getPath().split(";")[0];
-			//Removes "/" prefix
-			originalDb = originalDb.startsWith("/") ? originalDb.substring(1) : originalDb;
-
-			if (!flywayRunnerArgs.areAdminCredentialsSet()){
-				throw new UnsupportedOperationException("Admin db credentials not specified. Unable to create DB.");
+				if ( logger.isDebugEnabled() ) logger.debug("createDatabaseIfRequired() - does not exist " + jdbcUri.toString() );
+				
+				if (!flywayRunnerArgs.areAdminCredentialsSet()){ 
+			        throw new UnsupportedOperationException("Admin db credentials not specified. Unable to create DB."); 
+				}
+				
+				conn = DriverManager.getConnection(dbServerUrl, flywayRunnerArgs.getUsername(), flywayRunnerArgs.getPassword());
+				createDatabase(conn,schemaName);
 			}
-
-			Connection conn = DriverManager.getConnection(defaultUrl, flywayRunnerArgs.getAdminUsername(), flywayRunnerArgs.getAdminPassword());
-			Statement stmt = conn.createStatement();
-			stmt.execute("CREATE DATABASE " + originalDb);
-			conn.close();
 		}
+		finally
+		{
+			if ( conn != null )
+			{
+				conn.close();
+			}
+		}
+		
+		return true ;
+	}
+
+	private void createDatabase(Connection conn, String dbName) throws SQLException {
+		
+		Statement stmt = null ; 
+		try {
+			stmt = conn.createStatement();
+			stmt.execute("CREATE DATABASE " + dbName);	
+			logger.info( "database created:" + dbName );
+		}
+		finally
+		{
+			if ( stmt != null )
+				stmt.close();
+		}
+		
+	}
+
+	private boolean checkDatabaseExists(Connection connection, String databaseTargetName ) throws SQLException {
+		
+		ResultSet resultSet = null ;
+		PreparedStatement pst = null ;
+		
+		try {
+			String query = "SELECT datname FROM pg_database WHERE datistemplate = false;";
+			pst = connection.prepareStatement(query);
+			
+			resultSet = pst.executeQuery();
+
+			//iterate each catalog in the ResultSet
+			while (resultSet.next()) {
+			  // Get the database name, which is at position 1
+			  String databaseName = resultSet.getString(1);
+			  if ( databaseName.equals( databaseTargetName )) 
+				  return true ;
+			}			
+		}
+		finally
+		{
+			if ( pst != null )
+				pst.close();
+			if ( resultSet != null )
+				resultSet.close();
+		}		
+		
+		return false;
+	}
+
+
+	private boolean checkDatabaseExists(URI jdbcUri2) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public void executeFlyway() {
+		
+		logger.debug("executeFlyway()");
+		
 		String[] arguments = flywayRunnerArgs.getFlywayProperties();
 		Flyway flyway = createFlyway();
 		for(String argument:arguments){
+			
+			logger.info("Performing Flyway:" + argument );
+			
 			switch (argument){
 				case "migrate" :
 					flyway.migrate();

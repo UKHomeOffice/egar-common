@@ -22,7 +22,7 @@ public class FlywaySupportFactoryImpl implements FlywaySupportFactory {
 		if (uri.getScheme().equalsIgnoreCase(POSTGRESQL)){
 			return new PostgresFlywaySupport(datasource, uri, flywayRunnerArgs);
 		}else {
-			throw new UnsupportedOperationException("Database type not supported.");
+			throw new UnsupportedOperationException("Database type not supported, connection to " + uri );
 		}
 	}
 
