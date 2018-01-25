@@ -134,12 +134,6 @@ public class PostgresFlywaySupport implements FlywaySupport {
 		return false;
 	}
 
-
-	private boolean checkDatabaseExists(URI jdbcUri2) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	@Override
 	public void executeFlyway() {
 		
