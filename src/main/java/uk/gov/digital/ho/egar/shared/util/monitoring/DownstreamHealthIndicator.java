@@ -4,6 +4,7 @@
 package uk.gov.digital.ho.egar.shared.util.monitoring;
 
 import java.net.MalformedURLException;
+
 import java.net.URL;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,10 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+/**
+ * Used to propagate the health information between microservices
+ *
+ */
 public class DownstreamHealthIndicator implements HealthIndicator {
 
     private RestTemplate restTemplate;

@@ -6,6 +6,10 @@ import java.time.LocalDateTime;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
+/**
+ * Shared persistence adapter for localdatetime variables.
+ *
+ */
 @Converter(autoApply = true)
 public class LocalDateTimeConverter  implements AttributeConverter<LocalDateTime, Timestamp>{
 	@Override

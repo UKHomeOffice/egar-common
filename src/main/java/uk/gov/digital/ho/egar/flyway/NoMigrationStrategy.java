@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Assert;
 
 @Configuration
-public class NoMigrationStatagy implements FlywayMigrationStrategy {
+public class NoMigrationStrategy implements FlywayMigrationStrategy {
 
 	@Override
 	public void migrate(Flyway fly) {

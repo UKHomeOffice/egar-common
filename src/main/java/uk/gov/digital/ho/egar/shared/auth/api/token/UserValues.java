@@ -2,11 +2,14 @@ package uk.gov.digital.ho.egar.shared.auth.api.token;
 
 import java.util.UUID;
 
+
 import org.springframework.http.HttpHeaders;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
+/**
+ * JWT token support.
+ */
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class UserValues extends AuthValues{

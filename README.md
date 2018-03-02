@@ -15,12 +15,12 @@ This documents how to get started using Maven.
 		<dependency>
 			<groupId>uk.gov.digital.ho.egar</groupId>
 			<artifactId>egar-common</artifactId>
-			<version>4.5.0</version>
+			<version>5.0.1</version>
 		</dependency>
 ```
 
 ### Using it
-There are numeraous classes included within this JAR.
+There are numerous classes included within this JAR.
 Each one has its own use-case and its usage is documented within the header of the individual java class.
 
 ## Find Us
@@ -33,7 +33,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Versioning
 
-The version of this repository is performed following the guide lines bublished by the [The Apache Software Foundation](https://apr.apache.org/versioning.html).
+The version of this repository is performed following the guide lines published by the [The Apache Software Foundation](https://apr.apache.org/versioning.html).
 [tags on this repository](https://github.com/UKHomeOffice/egar-common/tags). 
 
 ## Authors

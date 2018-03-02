@@ -6,7 +6,9 @@ import org.springframework.http.HttpHeaders;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
+/**
+ * JWT credential store used to propagate the users credentials in the backend services.
+ */
 @Data
 @AllArgsConstructor
 public class AuthValues {

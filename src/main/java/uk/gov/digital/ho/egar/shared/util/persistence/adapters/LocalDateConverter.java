@@ -6,6 +6,10 @@ import java.sql.Date;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
+/**
+ * Persistence converter for LocalDate values.
+ *
+ */
 @Converter(autoApply = true)
 public class LocalDateConverter implements AttributeConverter<LocalDate, Date>{
 	@Override

@@ -16,7 +16,11 @@ import uk.gov.digital.ho.egar.flyway.support.FlywaySupport;
 import uk.gov.digital.ho.egar.flyway.support.FlywaySupportFactory;
 
 import javax.sql.DataSource;
-
+/**
+ * Uses the flyway library to apply database migration scripts when the 
+ * '--flyway ' command line parameters are supplied when starting up a CRUD 
+ * eGAR microservice.
+ */
 @Configuration
 @SpringBootApplication(exclude = {EmbeddedServletContainerAutoConfiguration.class, 
 		WebMvcAutoConfiguration.class,

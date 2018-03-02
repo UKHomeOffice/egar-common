@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Standard error handler for micro-service REST controller
+ *
+ */
 @ControllerAdvice(basePackages="uk.gov.digital.ho.egar")
 public class SharedControllerAdvice {
 	

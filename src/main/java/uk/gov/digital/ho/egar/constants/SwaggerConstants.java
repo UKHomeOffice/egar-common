@@ -1,5 +1,8 @@
 package uk.gov.digital.ho.egar.constants;
 
+/**
+ * Constants for swagger API documentation.
+ */
 public interface SwaggerConstants {
 	/**
      * The Web path for: the api root.

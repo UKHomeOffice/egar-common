@@ -8,7 +8,9 @@ import uk.gov.digital.ho.egar.flyway.support.FlywaySupportFactory;
 
 import javax.sql.DataSource;
 import java.net.URI;
-
+/**
+ * Support class for flyway migration, restricts it to Postgres databases.
+ */
 @Component
 public class FlywaySupportFactoryImpl implements FlywaySupportFactory {
 

@@ -6,7 +6,9 @@ import org.springframework.util.Assert;
 import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
-
+/**
+ * Configures the token filter eGAR backend API urls.
+ */
 public class FilterConfig {
 	List<RequestMatcher> filterPaths = null;
 	
