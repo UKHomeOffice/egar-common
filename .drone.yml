@@ -1,4 +1,10 @@
 pipeline:
+  sonar-scanner:
+    image: quay.io/ukhomeofficedigital/sonar-scanner:v3.0.1
+    when:
+      event:
+        - push
+        - pull_request
   build_and_deploy_code:
     image: maven
     privileged: true
